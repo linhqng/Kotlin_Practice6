@@ -53,7 +53,7 @@ class SlideActivity : AppCompatActivity() {
 
     fun getDataToJson() {
         AndroidNetworking.initialize(this)
-        AndroidNetworking.get("https://nopbai.live/data/data.json")
+        AndroidNetworking.get(url)
             .build()
             .getAsObject(Images::class.java,object : ParsedRequestListener<Images>{
                 override fun onResponse(response: Images) {
@@ -64,7 +64,7 @@ class SlideActivity : AppCompatActivity() {
                         hideLoading()
                         textView2.visibility = View.VISIBLE
                         viewPager.visibility = View.VISIBLE
-                    },2000)
+                    },7000)
                 }
 
                 override fun onError(anError: ANError?) {
